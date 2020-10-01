@@ -1,6 +1,8 @@
 import 'package:TravelBudget/Screens/Tabs/exploreView.dart';
 import 'package:TravelBudget/Screens/Tabs/historyView.dart';
-import 'package:TravelBudget/Screens/Tabs/homView.dart';
+import 'package:TravelBudget/Screens/Tabs/homeView.dart';
+import 'package:TravelBudget/Screens/newTrips/locationView.dart';
+import 'package:TravelBudget/models/Trips.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -17,9 +19,22 @@ class _LandingPageState extends State<LandingPage> {
   ];
   @override
   Widget build(BuildContext context) {
+    final newTrip = Trip(null, null, null, null, null);
     return Scaffold(
       appBar: AppBar(
         title: Text('Travel Budget'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => NewTripLocationView(trip: newTrip)),
+              );
+            },
+          )
+        ],
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(

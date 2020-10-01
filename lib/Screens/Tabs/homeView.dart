@@ -1,4 +1,4 @@
-import 'package:TravelBudget/SupportClass/Trips.dart';
+import 'package:TravelBudget/models/Trips.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -57,7 +57,7 @@ class HomeView extends StatelessWidget {
                       style: TextStyle(fontSize: 40),
                     ),
                     Spacer(),
-                    Text(trip.travelType),
+                    // Text(trip.travelType),
                     Icon(Icons.bike_scooter),
                   ],
                 ),
