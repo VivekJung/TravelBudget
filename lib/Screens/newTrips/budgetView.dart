@@ -28,11 +28,8 @@ class NewTripBudgetView extends StatelessWidget {
               child: Text('Finish up!'),
               onPressed: () async {
                 //save data to firebase firestore
-                await db.collection('trips').add({
-                  'trip': trip.title,
-                  'startDate': trip.startDate,
-                  'endDate': trip.endDate,
-                });
+                // the json is the  map provided in trip class.
+                await db.collection('trips').add(trip.toJson());
                 Navigator.of(context).popUntil((route) => route.isFirst);
               },
             )

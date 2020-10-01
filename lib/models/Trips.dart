@@ -12,4 +12,13 @@ class Trip {
     this.budget,
     this.travelType,
   );
+
+  //a function to create a json for above data
+  Map<String, dynamic> toJson() => {
+        'trip': title,
+        'startDate': startDate,
+        'endDate': endDate,
+        'budget': budget,
+        'travelType': travelType
+      };
 }
