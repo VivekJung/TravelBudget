@@ -2,6 +2,7 @@ import 'package:TravelBudget/Screens/newTrips/budgetView.dart';
 import 'package:flutter/material.dart';
 import 'package:TravelBudget/models/Trips.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
+import 'package:intl/intl.dart';
 
 class NewTripDateView extends StatefulWidget {
   final Trip trip;
@@ -49,28 +50,41 @@ class _NewTripDateViewState extends State<NewTripDateView> {
               'A trip to: ${widget.trip.title}',
               style: TextStyle(fontSize: 20),
             ),
+            SizedBox(height: 20),
             RaisedButton.icon(
-                onPressed: () async {
-                  displayDateRangePicker(context);
-                },
-                icon: Icon(Icons.date_range),
-                color: Colors.green[400],
-                label: Text('Trip duration')),
+              onPressed: () async {
+                displayDateRangePicker(context);
+              },
+              icon: Icon(
+                Icons.date_range_rounded,
+                size: 24,
+                color: Colors.white,
+              ),
+              color: Colors.green[700],
+              label: Text(
+                'Pick trip duration',
+                style: TextStyle(fontSize: 15, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 20),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    'When will you start?',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  Text(
-                    'When will it end?',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                      "${DateFormat('dd MMM, yyyy').format(_startDate).toString()} - ${DateFormat('dd MMM, yyyy').format(_endDate).toString()}"),
+                  // Text(
+                  //   'Starting on: ',
+                  //   style: TextStyle(fontSize: 16),
+                  // ),
+                  // Text(
+                  //   'Ending on: ',
+                  //   style: TextStyle(fontSize: 16),
+                  // ),
                 ],
               ),
             ),
+            SizedBox(height: 20),
             RaisedButton(
               child: Text('Continue'),
               onPressed: () {
